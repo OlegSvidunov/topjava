@@ -64,7 +64,7 @@ public class MealServlet extends HttpServlet {
 
         final String description = req.getParameter("description");
         final int calories = Integer.parseInt(req.getParameter("calories"));
-        final LocalDateTime dateTime = Util.parceDateTime(req.getParameter("datetime"));
+        final LocalDateTime dateTime = Util.parseDateTime(req.getParameter("datetime"));
 
         if (req.getParameter("idToUpdate") != null) {
             int id = Integer.parseInt(req.getParameter("idToUpdate"));

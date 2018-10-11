@@ -10,7 +10,7 @@ public class Util {
         return lt.compareTo(startTime) >= 0 && lt.compareTo(endTime) <= 0;
     }
 
-    public static LocalDateTime parceDateTime(String htmlDateTime) {
+    public static LocalDateTime parseDateTime(String htmlDateTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(htmlDateTime, formatter);
         return dateTime;
@@ -22,7 +22,7 @@ public class Util {
         final String calories = req.getParameter("calories");
         final LocalDateTime dateTime;
         try {
-            dateTime = Util.parceDateTime(req.getParameter("datetime"));
+            dateTime = Util.parseDateTime(req.getParameter("datetime"));
         } catch (Exception e) {
             return false;
         }
