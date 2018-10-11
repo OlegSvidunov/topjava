@@ -21,6 +21,7 @@
             border: 1px solid black;
             text-align: center;
         }
+
     </style>
 </head>
 
@@ -38,12 +39,7 @@
             <th></th>
         </tr>
         <c:forEach items="${requestScope.meals}" var="meal">
-            <c:if test="${meal.exceed}">
-                <tr style="color: red;">
-            </c:if>
-            <c:if test="${!meal.exceed}">
-                <tr style="color : green">
-            </c:if>
+            <tr style="${meal.exceed ? 'color : red' : 'color : green'}">
                     <td><c:out value="${meal.id}"/></td>
                     <javatime:format value="${meal.dateTime}" style="MS" var="formatedDate"/>
                     <td><c:out value="${formatedDate}"/></td>
@@ -62,8 +58,8 @@
                             <input type="submit" name="update" value="update"/>
                         </form>
                     </td>
-            </form>
-                </tr>
+                </form>
+            </tr>
         </c:forEach>
     </table>
 
