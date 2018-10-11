@@ -42,7 +42,7 @@ public class MealServlet extends HttpServlet {
             int id = Integer.parseInt(req.getParameter("deleteId"));
             model.getList().forEach(meal -> {
                 if (meal.getId() == id) model.delete(model.getList().indexOf(meal));
-                log.debug(String.format("Meal deleted ID: %d", id));
+                log.info(String.format("Meal deleted ID: %d", id));
                 return;
             });
             doGet(req, resp);
@@ -69,12 +69,12 @@ public class MealServlet extends HttpServlet {
         if (req.getParameter("idToUpdate") != null) {
             int id = Integer.parseInt(req.getParameter("idToUpdate"));
             model.update(id, dateTime, description, calories);
-            log.debug("Meal updated ID: %s", id);
+            log.info("Meal updated ID: %s", id);
             doGet(req, resp);
 
         } else {
             model.add(dateTime, description, calories);
-            log.debug("New meal added");
+            log.info("New meal added");
             doGet(req, resp);
         }
 
